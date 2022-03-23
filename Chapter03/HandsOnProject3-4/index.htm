@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en-US">
 <head>
    <!--
       JavaScript 6th Edition
       Chapter 3
       Hands-on Project 3-4
 
-      Author: 
-      Date:   
+      Author: Logan Walker
+      Date: 03/02/2022  
 
       Filename: index.htm
    -->
@@ -44,9 +44,44 @@
             <input type="text" id="toolBox" />
           </fieldset>
           <fieldset>
-            <button type="button" id="button">Submit</button>
+            <button type="button" id="button" >Submit</button>
           </fieldset>
       </form>
    </article>
+<script>
+
+var i = 1;
+var listItem = "";
+
+
+function processInput() {
+
+if (i <= 5) {
+
+listItem = "item" + (i);
+
+document.getElementById(listItem).innerHTML = document.getElementById("toolBox").value;
+document.getElementById("toolBox").value = "";
+
+
+if(i == 5){
+
+	document.getElementById("resultsExpl").innerHTML = "Thanks for your suggestions";
+}
+i++;
+}
+}
+var submitButton = document.getElementById("button");
+
+if(submitButton.addEventListener){
+	submitButton.addEventListener("click", processInput, false);
+
+} else if (submitButton.attachEvent){
+
+	submitButton.attachEvent("onclick", processInput);
+}
+
+
+</script>
 </body>
 </html>
